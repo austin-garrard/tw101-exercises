@@ -31,22 +31,22 @@ public class GuessReader {
     public int readGuess() {
         int guess;
 
-        printStream.print(" > ");
+        this.printStream.print(" > ");
         try {
             guess = this.scanner.nextInt();
         } catch (InputMismatchException e) {
-            printStream.println("Please enter a number in the range (1,100).");
+            this.printStream.println("Please enter a number in the range (1,100).");
             this.scanner.next();
             return -1;
         } catch (NumberFormatException e) {
             //including due to instructions, but Scanner.nextInt() does not throw NumberFormatException
-            printStream.println("Please enter a number in the range (1,100).");
+            this.printStream.println("Please enter a number in the range (1,100).");
             this.scanner.next();
             return -1;
         }
 
         if (guess <= 1 || guess >= this.upperBound) {
-            printStream.println("Please enter a number in the range (1,100).");
+            this.printStream.println("Please enter a number in the range (1,100).");
             return -1;
         }
 
